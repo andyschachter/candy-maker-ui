@@ -16,6 +16,8 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use(cors({ origin: "http://localhost:3000" }));
+
 app.get('/api/manufacturers', getAllManufacturers)
 
 app.get('/api/manufacturers/:id', getManufacturerById)
