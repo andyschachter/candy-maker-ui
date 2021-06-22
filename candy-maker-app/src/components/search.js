@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 const Search = props => {
 
@@ -14,7 +15,9 @@ const Search = props => {
       {props.manufacturerDataAsProps.map(manu => {
         return (
           <>
-          <div>{manu.name} ({manu.country})</div>
+          <div>
+            <NavLink to={`/manufacturers/${manu.id}`}>{manu.name} ({manu.country})</NavLink>
+          </div>
           </>
         )
       })}

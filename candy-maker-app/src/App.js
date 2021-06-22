@@ -42,7 +42,11 @@ function App() {
               setSearchTerm={setSearchTerm}
               />
           </div>
-          </Route>
+        </Route>
+
+        <Route path='/manufacturers/:id'>
+          <div><Candies /></div>
+        </Route>
 
         <Route path="*">
           <div><ErrorPage /></div>
