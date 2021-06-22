@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import Search from './components/search';
+import ErrorPage from './components/error';
 import { fetchData, filtered } from './utils/manufacturers'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
 function App() {
 
@@ -30,12 +32,24 @@ function App() {
   }, [searchTerm, manufacturerData])
 
   return (
-    <div>
-      <Search 
-      manufacturerDataAsProps={foundManufacturers}
-      setSearchTerm={setSearchTerm}
-      />
-    </div>
+    <BrowserRouter>
+      <Switch>
+
+        <Route exact path='/'>
+          <div>
+            <Search 
+              manufacturerDataAsProps={foundManufacturers}
+              setSearchTerm={setSearchTerm}
+              />
+          </div>
+          </Route>
+
+        <Route path="*">
+          <div><ErrorPage /></div>
+        </Route>
+
+      </Switch>
+    </BrowserRouter>
   );
 }
 
