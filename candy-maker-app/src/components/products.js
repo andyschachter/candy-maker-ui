@@ -28,6 +28,9 @@ const Candies = (props) => {
         ))}
       </ul>
     </h4>
+    <h5>
+    <button href="/">return home</button>
+    </h5>
     </>
   )
 }
