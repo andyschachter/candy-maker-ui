@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import Search from './components/search';
 import ErrorPage from './components/error';
+import Candies from './components/products';
 import { fetchData, filtered } from './utils/manufacturers'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
@@ -45,7 +46,11 @@ function App() {
         </Route>
 
         <Route path='/manufacturers/:id'>
-          <div><Candies /></div>
+          <div>
+            <Candies
+              candyDataAsProps={foundManufacturers}
+            />
+          </div>
         </Route>
 
         <Route path="*">
